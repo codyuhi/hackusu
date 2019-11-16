@@ -28,12 +28,12 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a class="navbb" href="#top"><span class="glyphicon glyphicon-briefcase"></span>
+                    <li><a class="navbb" href="#top"><span class="glyphicon glyphicon-upload"></span>
                             Upload</a></li>
-                    <li><a class="navbb" href="#background"><span class="glyphicon glyphicon-education"></span>
+                    <li><a class="navbb" href="#background"><span class="glyphicon glyphicon-info-sign"></span>
                             Background</a></li>
-                    <li><a class="navbb" href="#news"><span class="glyphicon glyphicon-ice-lolly-tasted"></span>
-                            News</a></li>
+                    <li><a class="navbb" href="#news"><span class="glyphicon glyphicon-qrcode"></span>
+                            Tech Used</a></li>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -53,25 +53,36 @@
         </div>
         <div>
             <!-- Place the circular image here -->
+            <img onclick="uploadImage();" id="uploadButton"src="img/uploadButton.png"/>
         </div>
         <div>
             <!-- Place the upload picture prompt here -->
-            <p id="uploadPrompt" onclick="">Upload Picture</p>
+            <p id="uploadPrompt" onclick="uploadImage();" onclick="">Upload Picture</p>
         </div>
     </div>
     <!-- This div is for teaching what a deepfake is -->
     <div class="section" id="background">
         <h2>What is a Deepfake?</h2>
-        <img id="backgroundImage" src="img/deepfakediag.png"/>
+        <a href="https://www.popularmechanics.com/technology/security/a28691128/deepfake-technology/"> <img
+            id="backgroundImage" src="img/deepfakediag.png" /></a>
     </div>
 
     <!-- This div is for showing current events related to Deepfakes -->
         <div class="section" id="news">
-            <h2>Current Events:</h2>
-            <iframe frameborder="0" height="100%" id="dest" name="dest" seamless="seamless"
-                src="http://cyberlaw.stanford.edu/our-work/topics/deepfakeshttps://www.bing.com/news/search?q=Deep+Fake&qpvt=deepfake+news&FORM=EWRE"
-                style="height:'100%';"
-                width="100%"></iframe>
+            <h2>Tech Used:</h2>
+            <!-- <img id="techUsed" src="img/techused.png" /> -->
+            <div>
+                <a href="https://www.tensorflow.org/"><img class="techSec" src="img/tensorflowLogo.png" /></a>
+                <a href="https://www.python.org/"><img class="techSec" src="img/python.png" /></a>
+                <a href="https://cloud.google.com/"><img class="techSec" src="img/Google_Cloud_logo_col.png" /></a>
+                <div class="holyTrinity">
+                    <a href="https://www.w3.org/html/"><img class="techSec" src="img/html.png" /></a>
+                    <a href="https://www.w3.org/Style/CSS/Overview.en.html"><img class="techSec"
+                            src="img/css.png" /></a>
+                    <a href="https://www.javascript.com/"><img class="techSec" src="img/javascript.png" /></a>
+                </div>
+                <a href="https://nodejs.org/en/"><img class="techSec" src="img/nodejs-1-logo-png-transparent.png" /></a>
+            </div>
             <p id="copyright">&#169 Britton Cannell & Cody Uhi 2019</p>
         </div>
         <script src="js/index.js"></script>

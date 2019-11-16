@@ -48,6 +48,7 @@ a.navbb {
 
 
 #top {
+    padding-top:4vw;
     top: -10vw;
     font-size: 4vw;
     font-family: 'Quattrocento';
@@ -58,7 +59,12 @@ a.navbb {
 }
 
 #uploadButton{
+    display:block;
+    margin:auto;
+}
 
+#uploadButton:hover{
+    cursor:pointer;
 }
 
 #uploadPrompt{
@@ -67,6 +73,7 @@ a.navbb {
 
 #uploadPrompt:hover{
     color:#7398a7;
+    cursor:pointer;
 }
 
 #background {
@@ -90,9 +97,12 @@ a.navbb {
     color: #eeeeee;
 }
 
-#dest{
-    overflow:hidden;
-    height: 100%;
+#techUsed{
+    padding-top: 5vw;
+    padding-left:2vw;
+    width: 80%;
+    display:block;
+    margin:auto;
 }
 
 #copyright {
@@ -113,6 +123,29 @@ a.navbb {
     /* Set the text color to be white
     in the sections */
     color: white;
+}
+
+.techSec{
+    display: inline-block;
+    z-index: 500;
+    width: 25%;
+    padding-top: 2.5vw;
+    padding-bottom: 2.5vw;
+    padding-right: 2.5vw;
+    padding-left: 3vw;
+    position: relative;
+}
+
+.holyTrinity{
+    background-color: #7398a7;
+    background: rgb(115, 152, 167);
+    /* Fallback for older browsers without RGBA-support */
+    background: rgba(115, 152, 167, 0.65);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
 }
 
 @keyframes backgroundscroller {

@@ -25,3 +25,8 @@ $(window).on('scroll', function (e) {
 
     $('#edu').toggleClass('animate', isVisible);
 });
+
+function uploadImage(){
+    console.log("Upload Image pressed");
+    alert("Your given image/video has a 97% probability of being a DeepFake!\nPlease validate its authenticity with your source!");
+}

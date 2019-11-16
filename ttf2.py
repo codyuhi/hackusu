@@ -35,16 +35,6 @@ num_deepfake_val = len(os.listdir(validation_deepfake_dir))
 total_train = num_real_tr + num_deepfake_tr
 total_val = num_real_val + num_deepfake_val
 
-
-checkpoint_path = "savedModels/cp-{epoch:04d}" + ".ckpt"
-checkpoint_dir = os.path.dirname(checkpoint_path)
-
-cp_callback = tf.keras.callbacks.ModelCheckpoint(checkpoint_path, 
-    save_weights_only=True,
-    verbose=1,
-    save_freq=1)
-print("Model will be saved to", str(checkpoint_dir))
-
 print('total training real images:', num_real_tr)
 print('total training deepfake images:', num_deepfake_tr)
 
@@ -55,7 +45,7 @@ print("Total training images:", total_train)
 print("Total validation images:", total_val)
 
 batch_size = 128
-epochs = 20
+epochs = 1
 IMG_HEIGHT = 150
 IMG_WIDTH = 150
 
@@ -99,14 +89,6 @@ model = Sequential([
     Dense(1, activation='sigmoid')
 ])
 
-try:
-    # checkpoint_path = "savedModels/cp.ckpt"
-    latest = tf.train.latest_checkpoint(checkpoint_dir)
-    model.load_weights(latest)
-    print("Loaded model from",str(latest))
-except:
-    print("unable to load weights from previous model.")
-
 model.compile(optimizer='adam',
               loss='binary_crossentropy',
               metrics=['acc'])
@@ -123,7 +105,6 @@ history = model.fit_generator(
 
 acc = history.history['acc']
 val_acc = history.history['val_acc']
-print("acc is",str(acc),"and val_acc is",str(val_acc))
 
 loss = history.history['loss']
 val_loss = history.history['val_loss']
@@ -219,15 +200,11 @@ history = model_new.fit_generator(
     steps_per_epoch=total_train // batch_size,
     epochs=epochs,
     validation_data=val_data_gen,
-    validation_steps=total_val // batch_size,
-    callbacks = [cp_callback]
+    validation_steps=total_val // batch_size
 )
-try:
-    acc = history.history['accuracy']
-    val_acc = history.history['val_accuracy']
-except:
-    acc = history.history['acc']
-    val_acc = history.history['val_acc']
+
+acc = history.history['accuracy']
+val_acc = history.history['val_accuracy']
 
 loss = history.history['loss']
 val_loss = history.history['val_loss']
